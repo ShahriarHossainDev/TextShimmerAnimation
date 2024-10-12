@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var multiColor = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            TextShimmerView(text: "Welcome", multiColor: $multiColor)
+            TextShimmerView(text: "To Home", multiColor: $multiColor)
+            
+            Toggle(isOn: $multiColor, label: {
+                Text("Enable MultiColors")
+                    .font(.title2)
+                    .fontWeight(.bold)
+            })
+                .padding()
+        }
+        .preferredColorScheme(.dark)
     }
 }
 
